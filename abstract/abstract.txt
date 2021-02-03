@@ -1,0 +1,157 @@
+Edwin, tussen dubbele accolades {{}} staat de omschrijving zoals die in het web
+formulier van useR!2021 staat.
+
+
+## Tutorial title:
+
+Systematic data validation with the validate package
+
+
+## Description 
+
+{{Provide a paragraph with topics to be covered also mention a brief detail of
+resources to deliver the tutorial online using active teaching (e.g., break out
+rooms?, pair programming? shared repo?) - 2500 characters}}
+
+
+
+Checking the quality of data is a task that pervades data analyses. It does not
+matter whether you are working with raw data, cleaned data, or with the results
+of an analyses. It is always important to convince yourself that  the data you
+are using is fit for its intended purpose. Since it is such a common task, why
+not automate it? The 'validate' package is designed for exactly this task: it
+implements a domain specific language for data checking that aims to encompass
+any check you might wish to perform.
+
+In this course you will will learn to define and measure data quality in a
+precise way with the validate package. We will focus on the main workflow, and
+show you how you can involve domain experts directly with your work, even if
+they do not know R. You will learn the main principles of data validation, both
+from the point of view of organizing a data processing work flow, as well as
+from a more formal perspective. You will exercise data validation tasks that
+range from checking input format and types to complex checks that involve data
+from multiple sources. Finally, you will learn how to follow the evolution of
+data quality as it is processed using the lumberjack package.
+
+
+The course will consist of hands-on work, based on a prepared tutorial that
+will be published on GitHub. There will be break-out sessions with assignments
+where you can discuss the materials with other course participants. The
+presentations will include some  quizzes to keep things interactive, fun, and
+focused.
+
+
+
+## Motivation 
+
+{{Why is tutorial suitable for participants of useR! 2021 ? - 2500 characters}}
+
+
+This course focuses on a task that every data analyst faces all the time but
+that  has received little formal attention: checking the quality of data. 
+
+Based on solid theoretical foundations[1], the 'validate' package offers a
+domain specific language to express data quality demands in a way that is
+familiar to R users and easy to learn by domain experts[2-4]. The package has
+proven its value in government statistical offices for several years and is
+used widely outside that field as well. Learning about the main workflows and
+the ideas behind the package will allow R users to introduce systematic data
+quality checks into their daily routine. 
+
+The course is suitable for useR2021 because it offers a fresh perspective on a
+task that is common to data investigators from academia, government or
+business. It will be taught by teachers who are seasoned in using, developing,
+and teaching R, and who have been active contributors to the R community for
+more than 10 years. This includes tutorials at useR!2013 and useR!2019. 
+
+The teachers each have more than 12 years experience in teaching R, data
+science, and data management. They teach at the universities of Leiden and
+Utrecht (NL) and to professionals of all trades and educational levels in
+government and industry. Both have extensive experience in teaching for
+international audiences. 
+
+The teachers strongly believe in active learning as an engaging technique.
+This is why the course is very interactive and uses a mix of hands-on
+tutorials, presentations, quizzes (kahoot or equivalent) small programming
+tasks, and break-out sessions for discussion.
+
+
+[1] Van der Loo, MPJ, and E de Jonge. "Data Validation." Wiley
+    StatsRef: Stat. Ref. Online (2014): 1-7. DOI: 10.1002/9781118445112
+[2] Van der Loo, MPJ, and E de Jonge. "Data Validation Infrastructure
+    for R" JSS (Accepted).
+[3] De Jonge and Van der Loo. "validatetools" R package 0.5.0.
+[4] Van der Loo, MPJ. "Monitoring data in r with the lumberjack package"
+    JSS (Accepted)
+
+
+## Time outline
+
+{{Provide a tutorial outline with the approximate duration of each section,
+example: lecture 20 minutes, live coding 15 minutes, lab 20 minutes. 2500
+characters}}
+
+
+Part 1: Introduction to validate and data validation. (60 min)
+
+- Opening and hands-on introduction to 'validate' workflow (20 min)
+- Presentation: theory of data validation + Q & A (20 min)
+- Breakout assignment & discussions in groups (20 min)
+
+Break (10 min)
+
+Part 2: Expressing data checks (50 minutes)
+
+- Feedback on results of the breakout groups (10 min)
+- Focus on different validation tasks. Small programming 
+  assignments, from simple to complex tasks.  (40 min)
+
+
+Break (10 min)
+
+Part 3: Automating data quality measurement with lumberjack (50 min)
+
+- Hands-on introduction to lumberjack (15 min)
+- Presentation: monitoring data in R and  Q&A (15 min)
+- Hands-on: lumberjack and validate  (20 min)
+
+Break (10 min)
+
+Part 4: Managing data validation rules (50 min)
+
+- hands-on introduction to the {validatetools} package (20 min)
+- Presentation and Q&A validation rule management (20 min)
+- Closing and Q&A (10 min)
+
+
+## Learning goals and objectives
+
+{{Provide a paragraph or list of learning goals and objectives - 2500
+characters}}
+
+
+Participants of this course will learn to:
+
+- Systematically think about data quality
+- Express data quality demands in {validate} syntax
+- Define data checks in the validate package
+- Analyse and visualise the data validation results
+- Automate data validation for a data processing script
+- Manage and maintain data quality demands.
+
+
+
+## Keywords separated by commas (max 5)
+
+Data Quality, Data Validation, Data Cleaning, Data Science, Reprodicibility
+
+
+## Duration (in minutes)
+
+240
+
+
+
+
+
+
