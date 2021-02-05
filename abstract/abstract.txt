@@ -1,5 +1,23 @@
-Edwin, tussen dubbele accolades {{}} staat de omschrijving zoals die in het web
-formulier van useR!2021 staat.
+
+## Name of corresponding instructor
+
+Mark van der Loo
+
+## Email
+
+mpj.vanderloo@cbs.nl
+
+## Affiliation
+
+Statistics Netherlands
+
+## Instructor Languages
+
+English
+
+## Other instructors
+
+Edwin de Jonge, Statistics Netherlands, Instructor, English
 
 
 ## Tutorial title:
@@ -12,7 +30,6 @@ Systematic data validation with the validate package
 {{Provide a paragraph with topics to be covered also mention a brief detail of
 resources to deliver the tutorial online using active teaching (e.g., break out
 rooms?, pair programming? shared repo?) - 2500 characters}}
-
 
 
 Checking the quality of data is a task that pervades data analyses. It does not
@@ -30,15 +47,16 @@ they do not know R. You will learn the main principles of data validation, both
 from the point of view of organizing a data processing work flow, as well as
 from a more formal perspective. You will exercise data validation tasks that
 range from checking input format and types to complex checks that involve data
-from multiple sources. Finally, you will learn how to follow the evolution of
-data quality as it is processed using the lumberjack package.
-
+from multiple sources. You will learn how to follow the evolution of
+data quality as it is processed using the lumberjack package. And you will
+learn how to flush out redundant or contradictory quality demands using the
+validatetools package.
 
 The course will consist of hands-on work, based on a prepared tutorial that
 will be published on GitHub. There will be break-out sessions with assignments
 where you can discuss the materials with other course participants. The
-presentations will include some  quizzes to keep things interactive, fun, and
-focused.
+presentations will include some Kahoot quizzes to keep things interactive, fun,
+and focused.
 
 
 
@@ -50,38 +68,39 @@ focused.
 This course focuses on a task that every data analyst faces all the time but
 that  has received little formal attention: checking the quality of data. 
 
-Based on solid theoretical foundations[1], the 'validate' package offers a
+Based on solid theoretical foundations[1-2], the 'validate' package offers a
 domain specific language to express data quality demands in a way that is
-familiar to R users and easy to learn by domain experts[2-4]. The package has
+familiar to R users and easy to learn by domain experts[3-5]. The package has
 proven its value in government statistical offices for several years and is
 used widely outside that field as well. Learning about the main workflows and
 the ideas behind the package will allow R users to introduce systematic data
 quality checks into their daily routine. 
 
-The course is suitable for useR2021 because it offers a fresh perspective on a
-task that is common to data investigators from academia, government or
-business. It will be taught by teachers who are seasoned in using, developing,
+The tutorial will be taught by teachers who are seasoned in using, developing,
 and teaching R, and who have been active contributors to the R community for
-more than 10 years. This includes tutorials at useR!2013 and useR!2019. 
+more than 10 years. This includes R packages, papers, conference contributions,
+and tutorials at useR!2013 and useR!2019. 
 
-The teachers each have more than 12 years experience in teaching R, data
+The instructors each have more than 12 years experience in teaching R, data
 science, and data management. They teach at the universities of Leiden and
 Utrecht (NL) and to professionals of all trades and educational levels in
 government and industry. Both have extensive experience in teaching for
 international audiences. 
 
-The teachers strongly believe in active learning as an engaging technique.
-This is why the course is very interactive and uses a mix of hands-on
-tutorials, presentations, quizzes (kahoot or equivalent) small programming
-tasks, and break-out sessions for discussion.
+Techniques from active learning will be used to engage the participants. The
+course will be is interactive and uses a mix of hands-on tutorials,
+presentations, quizzes (kahoot or equivalent) small programming tasks, and
+break-out sessions for discussion.
 
 
 [1] Van der Loo, MPJ, and E de Jonge. "Data Validation." Wiley
     StatsRef: Stat. Ref. Online (2014): 1-7. DOI: 10.1002/9781118445112
-[2] Van der Loo, MPJ, and E de Jonge. "Data Validation Infrastructure
+[2] Van der Loo, MPJ, and E de Jonge (2018). "Statistical Data Cleaning with Applications in R"
+    Wiley & Sons, Inc
+[3] Van der Loo, MPJ, and E de Jonge. "Data Validation Infrastructure
     for R" JSS (Accepted).
-[3] De Jonge and Van der Loo. "validatetools" R package 0.5.0.
-[4] Van der Loo, MPJ. "Monitoring data in r with the lumberjack package"
+[4] De Jonge and Van der Loo (2020). "validatetools" R package 0.5.0.
+[5] Van der Loo, MPJ. "Monitoring data in r with the lumberjack package"
     JSS (Accepted)
 
 
@@ -132,13 +151,13 @@ characters}}
 
 Participants of this course will learn to:
 
-- Systematically think about data quality
-- Express data quality demands in {validate} syntax
-- Define data checks in the validate package
+- Systematically define and reason about data quality
+- Express data quality demands in validate syntax and apply them to data
+- Add and manage metadata to data quality demands
 - Analyse and visualise the data validation results
+- Use those results to filter data sets.
 - Automate data validation for a data processing script
-- Manage and maintain data quality demands.
-
+- Handle contradictions or redundancies in data quality demands
 
 
 ## Keywords separated by commas (max 5)
@@ -150,7 +169,45 @@ Data Quality, Data Validation, Data Cleaning, Data Science, Reprodicibility
 
 240
 
+## Link to course material
 
+https://github.com/data-cleaning/useR2021_tutorial
+
+## Target audience
+
+Anyone who frequently processes data with R. 
+
+If you are hard-coding checks in your R scripts and are looking for a way to
+streamline and formalize your data quality checking, then this is the course
+for you.
+
+
+## Level of participant's knowledge of R
+
+Intermediate
+
+## Other required background knowledge
+
+- Basic computer skills: files, zip/unzip, file paths
+- Working with RStudio projects (or something equivalent).
+- Some experience with git is preferred (cloning a repo) but not required.
+
+
+## Required equipment
+
+- Laptop; a mobile phone is recommended for the Kahoot quizzes
+
+
+## Required software
+
+
+A recent version of R with the following packages installed
+
+- validate
+- lumberjack
+- validatetools
+
+It is recommended, but not strictly necessary to work with RStudio
 
 
 
