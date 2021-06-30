@@ -1,0 +1,44 @@
+---
+title: "Systematic Data Validation with R"
+author: "Mark van der Loo and Edwin de Jonge"
+date: "useR!2021"
+output: 
+  beamer_presentation:
+    include:
+      in_header: ../00tex/presheader.tex
+classoption: "aspectratio=169"
+---
+
+## Materials: `github.com/data-cleaning/useR2021_tutorial`
+
+Clone:
+```{bash, eval=FALSE}
+git clone https://github.com/data-cleaning/useR2019_tutorial
+```
+Or download:
+\begin{picture}(0,0)
+\put(200,-75){\includegraphics[height=35mm]{fig/github.png}}
+\end{picture}
+
+
+## Data Cleaning and the Statistical Value Chain
+
+\begin{center}
+\includegraphics[]{fig/valuechain.pdf}
+\end{center}
+
+
+## This tutorial
+
+
+### Topics
+
+First two steps of the the Value chain
+
+### Form
+
+1. You start with hands-on scripts
+2. Presentation: background
+3. Extra assignment (if there is time)
+
+
