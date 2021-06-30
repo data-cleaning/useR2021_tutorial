@@ -61,6 +61,12 @@ Or download:
 \texttt{code/01\_intro\_validate.R}
 \end{center}
 
+### 
 
+- You will be assigned to breakout rooms
+- Execute the code line by line.
+    - **Discuss what happens with your breakout partner(s)**
+    - **Write down any questions you might have**
+- After the session, type your questions in the chat.
 
 
