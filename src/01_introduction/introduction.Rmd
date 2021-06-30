@@ -58,7 +58,7 @@ Or download:
 
 \begin{center}
 \Huge
-\texttt{01\_intro\_validate.R}
+\texttt{code/01\_intro\_validate.R}
 \end{center}
 
 
