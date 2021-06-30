@@ -13,7 +13,7 @@ classoption: "aspectratio=169"
 
 Clone:
 ```{bash, eval=FALSE}
-git clone https://github.com/data-cleaning/useR2019_tutorial
+git clone https://github.com/data-cleaning/useR2021_tutorial
 ```
 Or download:
 \begin{picture}(0,0)
@@ -21,24 +21,46 @@ Or download:
 \end{picture}
 
 
-## Data Cleaning and the Statistical Value Chain
-
-\begin{center}
-\includegraphics[]{fig/valuechain.pdf}
-\end{center}
-
-
 ## This tutorial
 
 
 ### Topics
 
-First two steps of the the Value chain
+- Intro to `validate`
+- Expressing data checks
+- Following data quality in scripts: `lumberjack`
+- Managing data validation rules: `validatetools`
 
-### Form
+### Form for each Topic
 
 1. You start with hands-on scripts
 2. Presentation: background
 3. Extra assignment (if there is time)
+
+
+## Materials and references
+
+\begin{center}
+\begin{tabular}{p{0.20\textwidth}p{0.20\textwidth}|p{0.20\textwidth}p{0.20\textwidth}}
+\multicolumn{2}{c}{\textbf{Software}}&\multicolumn{2}{c}{\textbf{Theory}}\\
+\includegraphics[width=0.20\textwidth]{fig/jss}&
+\includegraphics[width=0.20\textwidth]{fig/cookbook}&
+\includegraphics[width=0.20\textwidth]{fig/wileystatref}&
+\includegraphics[width=0.20\textwidth]{fig/sdcr}\\
+{\Tiny JSS \textbf{97}(10) 1--33. }&
+{\Tiny data-cleaning.github.io/validate}&
+{\Tiny Wiley StatsRef Online}&
+{\Tiny Wiley (2018)}
+\end{tabular}
+\end{center}
+
+## Assignment 1
+
+\begin{center}
+\Huge
+\texttt{01\_intro\_validate.R}
+\end{center}
+
+
 
 

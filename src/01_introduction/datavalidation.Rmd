@@ -1,0 +1,154 @@
+---
+title: "Theory of data validation"
+author: "Mark van der Loo and Edwin de Jonge"
+date: "useR!2021"
+output: 
+  beamer_presentation:
+    include:
+      in_header: ../00tex/presheader.tex
+classoption: "aspectratio=169"
+---
+
+## Statistical Value Chain
+
+\begin{center}
+\includegraphics[height=0.35\textheight]{fig/valuechain}
+\end{center}
+
+## Statistical Value Chain
+
+\begin{center}
+\includegraphics[height=0.4\textheight]{fig/svc1}
+\end{center}
+
+## Statistical Value Chain
+
+\begin{center}
+\includegraphics[height=0.4\textheight]{fig/svc3}
+\end{center}
+
+
+
+## Data validation
+
+$$
+\;
+$$
+
+> Data validation is an activity in which one verifies whether a combination of values is acceptable.
+
+
+
+$$
+\;
+$$
+
+### Examples
+
+- Is the $Age$ nonnegative?
+- Does $Turnover - Cost$ equal $Profit$?
+- Is the average $Profit$ positive?
+- Does the mean $Profit ratio$ differ less than 10\% from last year's?
+
+
+## Why data validation rules?
+
+### Because
+
+- you want to clearly **communicate** your data quality
+- validation rules have a **life cycle** 
+    - treat like data (CRUD, analyze)
+    - treat like code (version control, review, test)
+- they are **Input** for algorithms that improve data quality.
+
+
+### `validate` 
+
+Define, use, analyze, manipulate data validation rules and validation results.
+
+
+## The `validate` package: basic workflow
+
+\begin{center}
+\includegraphics[height=0.5\textheight]{fig/overview}
+\end{center}
+
+
+# Rule complexity
+
+## Formal definition
+
+### Intuition
+
+$v$ accepts a set of data points and tells you if it passes a criterion or not.
+
+### Definition
+
+A _data validation function_ $v$  is a surjection
+
+$$
+v:D^K\twoheadrightarrow \{\textsf{True},\textsf{False}\},
+$$
+where
+
+- $K$ a finite set of keys
+- $D$ the union of domains of all variables in the data set
+- $D^K$ all possible data sets you may observe
+
+
+## How complex is a validation rule?
+
+### Intuition
+
+A rule is more complex if I need more different types of data points.
+
+## To label a data point
+
+\begin{center}
+\includegraphics[height=0.7\textheight]{fig/measurement}
+\end{center}
+
+
+## A measure for rule complexity
+
+### To evaluate my rule, do I need values from _one_ or _more_
+
+1.  populations (entity types) $U$?
+2.  measurements $\tau$?
+3.  population units $u$?
+4.  variables $X$ ?
+
+###
+
+- $\to$ For each 'yes' denote a $m$ (multiple)
+- $\to$ For each 'no', denote a $s$ (single)
+- The number of $m$'s is the complexity level of your rule.
+
+## Examples
+\begin{center}
+\begin{tabular}{p{0.7\textwidth}p{0.05\textwidth}r}
+\textbf{Rule} & \textbf{labels} & \textbf{level}\\
+\hline
+$Age >= 0$                 & $ssss$     & 0\\
+\hline
+$Turnover - Cost = Profit$ & $sssm$     & 1\\
+\hline
+$Mean(Profit) >= 10$       & $ssms$     & 1\\
+\hline
+$|Mean(Profit/Turnover)_t-Mean(Profit/Turnover)_{t-1}|<5$ & $smmm$ & 3\\
+\hline
+\end{tabular}
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
