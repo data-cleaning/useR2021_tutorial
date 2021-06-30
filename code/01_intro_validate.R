@@ -44,7 +44,7 @@ df <- as.data.frame(result)
 # What do the columns mean?
 
 # what does this function return?
-x <- violating(SBS2000, out)
+x <- violating(SBS2000, result)
 
 
 
