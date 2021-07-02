@@ -12,9 +12,7 @@ Materials for the useR!2021 tutorial on data validation
 Install the following packages, by copying the code below.
 
 ```r
-install.packages("validate")
-install.packages("validatetools")
-install.packages("lumberjack")
+install.packages(c("validate","validatetools","lumberjack"))
 install.packages("simputation", dependencies=TRUE)
 ```
 
