@@ -49,11 +49,116 @@ classoption: "aspectratio=169"
 - Without _changing_ code
 - Customizable, user-defined loggers
 - Track multiple data sets
-- Track a data set with multiple loggers
+- Track a data set in multiple ways
+
+
+## Main functions
+
+\begin{center}
+\begin{tabular}{ll}
+\hline
+Logger          & what it does \\
+\hline
+\texttt{start\_log}   & Assign a logger to an \texttt{R} object.\\
+\texttt{stop\_log}    & Stop logging and dump log, where dumping can be switched off.\\
+\texttt{dump\_log}    & Dump logging info and stop logging, where stopping is optional\\
+\texttt{run\_file}    & Execute a file, while logging, in a  new \texttt{environment}.\\
+\texttt{source\_file} & Execute a file, while logging, in the global \texttt{environment}.\\
+\hline
+\end{tabular}
+\end{center}
+
+## Built-in loggers
+
+\begin{center}
+\begin{tabular}{ll}
+\hline
+Logger          & what it does \\
+\hline
+\texttt{expression\_logger} & record result of custom \texttt{R} expressions.\\
+\texttt{filedump}           & dump a file after each operation.\\
+\texttt{simple}             & record whether anything changed (\texttt{logical}).\\
+\texttt{cellwise}           & record cell-by-cell changes.\\
+\hline
+\end{tabular}
+\end{center}
+
+## Using lumberjack in a script
+
+```{r, eval=FALSE}
+library(lumberjack)
+# create some loggers
+logger1 <- filedump$new(dir="/my/output")
+logger2 <- cellwise(key="id")
+# add both loggers
+start_log(dat, logger1)
+start_log(dat, logger2)
+
+# Code doing stuff with 'dat'
+
+# dump one of the loggers
+dump_log(dat, logger="filedump")
+
+# continue modifying 'dat'
+#...
+```
+
+## The expression logger
+
+### Track any summary statistic
+
+```{r, eval=FALSE}
+logger <- expression_logger$new(
+    av_turnover = mean(turnover, na.rm=TRUE)
+  , av_staffcost = mean(staff.costs, na.rm=TRUE)
+)
+
+start_log(dat, logger)
+```
 
 
 
+## Create your own logger
 
+### Loggers are reference (`R6`, or base `R`) objects with two obligatory methods
+
+- `$add(meta, input, output)` Compute difference between in- and output
+    - `meta`: R expression and source 
+    - `input`: data before expression evaluation
+    - `output`: data after expression evaluation
+- `$dump()` Make the logger dump the logging info
+
+
+## `validate` exports two loggers
+
+### `lbj_cells()`
+
+Keep track of diffence in data, using the `cells()` function.
+
+```{r}
+logger <- validate::lbj_cells()
+```
+
+
+### `lbj_rules`
+
+Keep track of changes in rule violations, using the `compare()` function.
+
+```{r, eval=FALSE}
+logger <- validate::lbj_rules(rules)
+```
+
+
+## Exercise
+
+1. Use the `lbj_rules()` logger to track changes in rule violations for the  `clean_supermarkets.R` script.
+    - use the rules in `code/SBS2000_rules.R`
+2. Add a logger that tracks the `mean` of variables `turnover` and `staff.costs`
+
+### Note
+
+- `R6` loggers are initialized with `$new()` (like the expression logger)
+- Base R reference class loggers are initialized with `loggername()` (like `lbj_rules()`)
 
 
 
