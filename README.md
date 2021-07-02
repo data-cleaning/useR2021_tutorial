@@ -4,6 +4,11 @@ Materials for the useR!2021 tutorial on data validation
 
 ## Preparations
 
+- Make sure you have a **recent version of R (>= 4.10)** installed. 
+- During the tutorial we will use the RStudio IDE, but this is
+  not mandatory for participants.
+
+
 Install the following packages, by copying the code below.
 
 ```r
@@ -12,6 +17,22 @@ install.packages("validatetools")
 install.packages("lumberjack")
 install.packages("simputation", dependencies=TRUE)
 ```
+
+## Required knowledge
+
+We expect participants to have some basic knowledge of (base) R.  No knowledge
+about particular packages is required. You should be familiar with data frames,
+reading from and writing to `csv`, selecting columns and rows, and working with
+R scripts.
+
+If  you want to brush up your R knowledge, you can follow the excellent [free
+online tutorial](https://github.com/matloff/fasteR) by Norm Matloff.
+
+
+If you work with RStudio, we **strongly** advise you to work in an RStudio
+Project so data and scripts are found within the local project path.
+
+
 
 ## Time outline
 
