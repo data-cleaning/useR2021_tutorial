@@ -3,6 +3,8 @@
 .RData
 .Ruserdata
 
+
+*.csv
 *.Rproj
 *.log
 *.pdf

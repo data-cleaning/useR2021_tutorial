@@ -1,0 +1,59 @@
+---
+title: "Automating data quality measurement"
+author: "Mark van der Loo and Edwin de Jonge"
+date: "useR!2021"
+output: 
+  beamer_presentation:
+    include:
+      in_header: ../00tex/presheader.tex
+classoption: "aspectratio=169"
+---
+
+## 
+
+- Measuring differences in data
+- Measuring evolution of quality
+
+
+##
+
+\begin{center}
+\includegraphics[height=0.45\textheight]{fig/datastep}
+\end{center}
+
+##
+
+\begin{center}
+\includegraphics[height=0.7\textheight]{fig/datastep2}
+\end{center}
+
+
+##
+
+\begin{center}
+\includegraphics[height=0.6\textheight]{fig/cellsplit}
+\end{center}
+
+
+##
+
+\begin{center}
+\includegraphics[height=0.6\textheight]{fig/rulesplit}
+\end{center}
+
+
+## `lumberjack`
+
+### Track changes in data
+
+- Without _changing_ code
+- Customizable, user-defined loggers
+- Track multiple data sets
+- Track a data set with multiple loggers
+
+
+
+
+
+
+
