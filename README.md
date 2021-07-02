@@ -1,6 +1,18 @@
 # useR2021_tutorial
 Materials for the useR!2021 tutorial on data validation
 
+
+## Preparations
+
+Install the following packages, by copying the code below.
+
+```r
+install.packages("validate")
+install.packages("validatetools")
+install.packages("lumberjack")
+install.packages("simputation", dependencies=TRUE)
+```
+
 ## Time outline
 
 
