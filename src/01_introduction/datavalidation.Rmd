@@ -76,31 +76,15 @@ Define, use, analyze, manipulate data validation rules and validation results.
 
 # Rule complexity
 
-## Formal definition
-
-### Intuition
-
-$v$ accepts a set of data points and tells you if it passes a criterion or not.
-
-### Definition
-
-A _data validation function_ $v$  is a surjection
-
-$$
-v:D^K\twoheadrightarrow \{\textsf{True},\textsf{False}\},
-$$
-where
-
-- $K$ a finite set of keys
-- $D$ the union of domains of all variables in the data set
-- $D^K$ all possible data sets you may observe
 
 
 ## How complex is a validation rule?
 
 ### Intuition
 
-A rule is more complex if I need more different types of data points.
+A rule is `complex' if I need different a lot of different information 
+to evaluate it.
+
 
 ## To label a data point
 
@@ -108,6 +92,23 @@ A rule is more complex if I need more different types of data points.
 \includegraphics[height=0.7\textheight]{fig/measurement}
 \end{center}
 
+## 
+
+### Intuition
+
+A \emph{data point} is a key-value pair, where the key determines what the 
+value means.
+
+### From the previous picture, a key should at least label
+
+- What population (entity type) we are measuring: $U$
+- When did we make the measurement: $\tau$
+- Which element of the population (entity) was measured: $u$
+- Which variable was measured: $X$
+
+###
+$\to$ mnemonic: $U\tau u X$
+ 
 
 ## A measure for rule complexity
 
@@ -140,9 +141,36 @@ $|Mean(Profit/Turnover)_t-Mean(Profit/Turnover)_{t-1}|<5$ & $smmm$ & 3\\
 \end{tabular}
 \end{center}
 
+## Not all 4-sequences of $m$'s and $s$'s are possible
+
+###
+
+\begin{center}
+\begin{tabular}{ccccc}
+\multicolumn{5}{c}{Validation level}\\
+\hline
+0 & 1 & 2 & 3 & 4\\
+\hline
+ssss & sssm & ssmm & smmm & mmmm \\
+     & ssms & smsm & msmm &      \\
+     & smss & smms &      &      \\
+\hline
+\end{tabular}
+\end{center}
 
 
 
+###
+
+More information: [arxiv.org/abs/2012.12028](https://arxiv.org/abs/2012.12028)
+
+
+## Assignment 2
+
+\begin{center}
+\Huge
+\texttt{pdf/assignment2.pdf}
+\end{center}
 
 
 
