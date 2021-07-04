@@ -16,6 +16,12 @@ install.packages(c("validate","validatetools","lumberjack"))
 install.packages("simputation", dependencies=TRUE)
 ```
 
+Optionally, if you want to run validation checks on a database:
+
+```r
+install.packages(c("validatedb","RSQLite"))
+```
+
 ## Required knowledge
 
 We expect participants to have some basic knowledge of (base) R.  No knowledge
