@@ -1,0 +1,14 @@
+rules:
+- expr: age >= 18
+  name: is_adult
+  label: Not a child
+- expr: if (job == TRUE) age <= 70
+  name: retirement
+  label: 'retirement'
+- expr: if (income > 0) job == TRUE
+  name: has_job
+  label: 'Has a job'
+- expr: income >= 0
+  name: income
+  label: 'income'
+
