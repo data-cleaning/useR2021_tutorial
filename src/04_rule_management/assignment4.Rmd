@@ -22,7 +22,7 @@ library(validatetools)
 
 Load the R package `validatetools`.
 
-a) Look at the file `rules.yml`
+a) Look at the file `code/rules.yml`
 
 ```yml
 ```{r, child="rules.yml", results='asis'}
