@@ -11,13 +11,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Exercise 1, variable checks
 
-Variable checks are checks that can be performed on a field-by-field basis. 
-For example checking if `Age` is non-negative, or of integer
-type. Variable checks are among the simplest checks.
+Variable checks are checks that can be performed on a field-by-field basis. For
+example checking if `Age` is non-negative, or of integer type. Variable checks
+are among the simplest checks.
 
 We will use the `SBS2000` data set, that is included with `validate`.
 
-Load the `SBS2000` data set and look at the description:
+Load the `SBS2000` data set.
 
 ```{r}
 library(validate)
@@ -26,9 +26,9 @@ data(SBS2000)
 
 a) Check the variable type 
 
-The following `validator` defines a rule that column `turnover` should be a 
-numeric. When confronted with a data set (e.g. `SBS2000`) we see that this is the 
-case.
+The following `validator` defines a rule that column `turnover` should be a
+`numeric`. When confronted with a data set (e.g. `SBS2000`) we see that this is
+the case.
 
 ```{r}
 rules <- validator(
@@ -62,7 +62,8 @@ e) As d) but now with at least two digits.
 ## Exercise 2
 
 The functions `is_complete()` and `all_complete()` are convenience functions
-that test for missing values or combinations thereof in records.
+that test for missing values or combinations thereof in records. Have a look
+at their help files.
 
 a) 
 
@@ -98,7 +99,7 @@ out <- confront(SBS2000, rules)
 summary(out)
 ```
 
-c) `validate` also for conditional statements: `if {rule_p} rule_q`:
+c) `validate` also accepts conditional rules: `if {rule_p} rule_q`:
 Execute the following:
 
 ```{r, eval=FALSE}
@@ -121,10 +122,8 @@ quality checks have been done on the data, and a user can test if the data compl
 a) Put the following rules in a `rules.R` file
 
 ```r
-# Otherwise a ghost enterprise
 turnover >= 0
 
-# Otherwise a ghost enterprise
 staff >= 0
 
 # profits can be negative (not for long...)
@@ -141,8 +140,9 @@ View(rules_df)
 ```
 
 c) Use `names(rules)` to set the `id` of the rules to `BR01`, `BR02` and `BR03`.
-Use the `label` function to set the label of the third rule to "profit def".
-Use `print(rules)` to see the differences.
+You can do this in the same way as for renaming elements of a vector. Use the
+`label` function to set the label of the third rule to "profit def". Use
+`print(rules)` to see the differences.
 
 d) Export the rule set to "br.yml" in yaml format using `export_yaml`.
 Open "br.yml" in RStudio (or another text editor) and copy the comments of the rules
