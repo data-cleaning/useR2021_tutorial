@@ -6,7 +6,8 @@ Materials for the useR!2021 tutorial on data validation
 
 - Make sure you have a **recent version of R (>= 4.1.0)** installed. 
 - During the tutorial we will use the RStudio IDE, but this is
-  not mandatory for participants.
+  not mandatory for participants. Please note that you need RStudio
+  version 1.4.1717 or higher to work with R >= 4.1.0.
 
 
 Install the following packages, by copying the code below.
