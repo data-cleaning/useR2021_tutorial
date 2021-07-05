@@ -12,15 +12,11 @@ Materials for the useR!2021 tutorial on data validation
 Install the following packages, by copying the code below.
 
 ```r
-install.packages(c("validate","validatetools","validatedb","lumberjack"))
+install.packages(c("validate","validatetools","validatedb"
+                  ,"RSQLite","lumberjack"))
 install.packages("simputation", dependencies=TRUE)
 ```
 
-Optionally, if you want to run validation checks on a database:
-
-```r
-install.packages(c("validatedb","RSQLite"))
-```
 
 ## Required knowledge
 
