@@ -27,8 +27,7 @@ data(SBS2000)
 a) Check the variable type 
 
 The following `validator` defines a rule that column `turnover` should be a
-`numeric`. When confronted with a data set (e.g. `SBS2000`) we see that this is
-the case.
+`numeric`. When confronted with a data set (e.g. `SBS2000`) we see that this is the case.
 
 ```{r}
 rules <- validator(
@@ -38,8 +37,7 @@ out <- confront(SBS2000, rules)
 summary(out)
 ```
 
-Adjust the code, so it checks that `size` is a text variable and `staff` is a `integer`.
-Explain why the size rule fails.
+Adjust the code, so it checks that `size` is a text variable and `staff` is a `integer`. Explain why the size rule fails.
 
 b) Create a rules object using `is.na()` to check missing items in `turnover` and `profit`. `confront` the rules with `SBS2000` and summarize the results.
 
@@ -176,9 +174,8 @@ print(enterprise)
 
 b) Use confront to execute the rules on the database table and `print` and do a `summary`.
 
-
 c) Use `values` on the result of confront see the contents of the checks.
 
-
+d) Use `show_query` to print the SQL code that is executed on the database.
 
 
