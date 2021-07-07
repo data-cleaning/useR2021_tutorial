@@ -200,17 +200,6 @@ errors(out)
 ```
 
 
-## Assignment 3
-
-1. Create a new textfile
-2. Define 10 rules for the `retailers` dataset
-3. Read the rules (`validator(.file="your file")`)
-4. `confront` rules with data
-5. Summarize and plot the results.
-6. Use `as.data.frame` and `View` to convert and display the results.
-7. Make a `plot` of the `validator` object.
-
-
 ## Naming rules
 
 ```{r}
@@ -272,6 +261,4 @@ voptions(rules, na.value=FALSE)
 out <- confront(retailers, rules
         , lin.eq.eps=1e-2 )
 ```
-
-
 

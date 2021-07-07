@@ -209,6 +209,14 @@ Open "br.yml" in RStudio (or another text editor) and copy the comments of the r
 in `a)` into the descriptions of the yaml file.
 Read the `br.yml` file into a validator object.
 
+e) `confront` rules with data
+f) Summarize and plot the results.
+g) Use `as.data.frame` and `View` to convert and display the results.
+h) Make a `plot` of the `validator` object.
+
+
+
+
 ## Exercise 4
 
 `validate` checks are normally executed in a data.frame. When your data is big, 
