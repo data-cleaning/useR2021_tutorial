@@ -169,7 +169,7 @@ More information: [arxiv.org/abs/2012.12028](https://arxiv.org/abs/2012.12028)
 
 \begin{center}
 \Huge
-\texttt{pdf/assignment2.pdf}
+\texttt{pdf/01\_assignment2.pdf}
 \end{center}
 
 
