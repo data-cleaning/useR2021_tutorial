@@ -13,7 +13,7 @@ library(validatetools)
 
 ## Exercise 1, rule management
 
-- What is maximum columns in a dataset you encountered in your work?
+- What is maximum number of columns in a dataset you encountered in your work?
 - Can you give an indication of the maximum number of data validity rules that are checked in production process ? 
 - How many persons are involved in checking and maintaining the rules?
 

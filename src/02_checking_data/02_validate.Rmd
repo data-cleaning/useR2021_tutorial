@@ -1,0 +1,264 @@
+---
+title: "Validate your data"
+author: "Mark van der Loo and Edwin de Jonge"
+date: "useR!2021"
+output: 
+  beamer_presentation:
+    include:
+      in_header: ../00tex/presheader.tex
+classoption: "aspectratio=169"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## `validate`: _data validation infrastructure for R_
+
+### A domain-specific language for rule definition
+
+Define _any_ check on your data, using the _full power_ of the R 
+language.
+
+### Rules as first-class citizens
+
+- CRUD operations (create, read, update, delete)
+- Summarize, plot, investigate rules
+- Rich metadata
+
+### Validate data
+
+- Confront data with rules
+- CRUD on results, summarize, plot
+- Export to ESS standard reporting format (upcoming)
+
+## Assignment 1
+
+Try the following code.
+
+```{r, results='hide'}
+library(validate)
+library(magrittr)
+data(retailers)
+head(retailers)
+retailers %>%
+  check_that(turnover + other.rev == total.rev
+             , turnover > 0, other.rev > 0 ) %>%
+  summary()
+```
+
+## Assignment 1
+
+
+\scriptsize{}
+```{r}
+library(validate)
+library(magrittr)
+data(retailers) 
+retailers %>%
+  check_that(turnover + other.rev == total.rev
+             , turnover > 0, other.rev > 0 ) %>%
+  summary()
+```
+\normalfont{}
+
+
+## Data validation with `validate`
+
+\scriptsize{}
+```{r}
+library(validate)
+data(retailers)
+head(retailers,3)[3:7]
+```
+\normalfont{}
+
+
+## Data validation with `validate`
+
+
+```{r,results='hide'}
+rules <- validator(
+   turnover >= 0
+  , other.rev >= 0
+  , turnover + other.rev == total.rev
+)
+
+out <- confront(retailers, rules)
+summary(out)
+```
+
+## Plotting output
+
+\scriptsize{}
+```{r}
+plot(out)
+```
+\normalfont{}
+
+
+## Reading rules from file
+
+```{r, eval=FALSE}
+### myrulez.txt
+
+# some basic checks
+staff >= 0
+turnover >= 0 
+other.rev >= 0
+# account balance checks
+turnover + other.rev == total.rev
+# other commom sense stuff
+if (staff >= 1) staff.costs >= 1
+```
+
+```{r,eval=FALSE}
+rulez <- validator(.file="myrulez.txt")
+```
+
+## Domain Specific Language
+
+### Validation DSL
+
+Any R statement resulting in a `logical`.
+
+### Examples
+
+```{r, eval=FALSE}
+# Range checks
+has_job %in% c('yes','no')
+turnover >= 0
+# Multivariate checks
+abs(profit) <= 0.6 * turnover
+# Multi-row checks
+mean(profit) > 10
+# Logical implications
+if (staff > 0) staff.costs > 0
+```
+
+## Validation DSL
+
+### Comparisons
+
+`>, >=,==, <=, <, %in%`
+
+### Boolean operations
+
+`!, all(), any(), &, &&, |, ||, if () else`
+
+### Text search
+
+`grepl`
+
+
+### Functional dependencies (Armstrong)
+
+`city + zipcode ~ streetname`
+
+### Refer to the dataset with `.`
+
+`nrow(.) == 40`, `"turnover" %in% names(.)`
+
+## Transient assignments (macros) using `:=`
+
+### Example 1
+
+$$
+\max\left(\frac{x}{x^*},\frac{x^*}{x}\right) \leq 10
+$$
+
+```{r, eval=FALSE}
+med := median(turnover,na.rm=TRUE)
+hb := pmax(turnover/med, med/turnover, na.rm=TRUE)
+hb <= 10
+```
+
+### Example 2
+
+```{r,eval=FALSE}
+beta_2 := coefficients(lm(turnover ~ profit))[2]
+beta_2 >= 0
+```
+
+
+## Variable groups
+
+### Many variables, same rule
+
+```{r, eval=FALSE}
+G := var_group(staff, turnover, other.rev, total.costs)
+G >= 0
+```
+
+## Error handling
+
+```{r}
+out <- check_that(women, hite > 0, weight>0)
+out
+errors(out)
+```
+
+
+## Naming rules
+
+```{r}
+rules <- validator(
+  to_pos = turnover >= 0
+  , or_pos = other.rev >= 0
+  , balance = turnover + other.rev == total.rev)
+rules
+```
+
+## Rule selection
+
+```{r}
+rules[1:2]
+rules["balance"]
+```
+
+## Rule metadata
+
+```{r}
+rules[[3]]
+```
+
+## More manipulation: combining rule sets
+
+```{r}
+validator(x > 0) + validator(x <= 1)
+```
+
+## Export rules & metadata to and import from `data.frame`
+
+### Create data frame
+```{r}
+rules_df <- as.data.frame(rules)
+```
+
+### Read from data frame
+```{r}
+myrules <- validator(.data = rules_df)
+```
+
+## Setting options
+
+### Global options
+```{r}
+# stop at error instead of catching
+voptions(raise="all")
+```
+
+### Options per object
+
+```{r}
+# value to replace NA outcomes
+voptions(rules, na.value=FALSE)
+```
+
+### When confronting data with rules
+```{r}
+out <- confront(retailers, rules
+        , lin.eq.eps=1e-2 )
+```
+
