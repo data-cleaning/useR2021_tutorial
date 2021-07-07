@@ -3,10 +3,12 @@ title: 'Assignment 3: data checking'
 author: "Mark van der Loo and Edwin de Jonge"
 date: "useR!2021"
 output: pdf_document
+params:
+  answers: FALSE
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = params$answers, eval=params$answers)
 ```
 
 ## Exercise 1, variable checks
@@ -19,7 +21,7 @@ We will use the `SBS2000` data set, that is included with `validate`.
 
 Load the `SBS2000` data set.
 
-```{r}
+```{r, echo=TRUE, eval=TRUE}
 library(validate)
 data(SBS2000)
 ```
@@ -29,7 +31,7 @@ a) Check the variable type
 The following `validator` defines a rule that column `turnover` should be a
 `numeric`. When confronted with a data set (e.g. `SBS2000`) we see that this is the case.
 
-```{r}
+```{r, echo=TRUE, eval=TRUE}
 rules <- validator(
   is.numeric(turnover)
 )
@@ -39,7 +41,32 @@ summary(out)
 
 Adjust the code, so it checks that `size` is a text variable and `staff` is a `integer`. Explain why the size rule fails.
 
+```{r}
+rules <- validator(
+  is.numeric(turnover),
+  is.character(size),
+  is.integer(staff)
+)
+out <- confront(SBS2000, rules)
+summary(out)
+
+# well size is a factor!
+str(SBS2000[c("turnover", "size", "staff")])
+# and is.numeric also works on integers (i.e. turnover)
+```
+
+
 b) Create a rules object using `is.na()` to check missing items in `turnover` and `profit`. `confront` the rules with `SBS2000` and summarize the results.
+
+```{r}
+rules <- validator(
+  !is.na(turnover),
+  !is.na(profit)
+)
+
+summary(confront(SBS2000, rules))
+```
+
 
 c) Create a rules object using `field_length` (or `nchar`) to check that
 
@@ -49,13 +76,48 @@ c) Create a rules object using `field_length` (or `nchar`) to check that
 
 `confront` the rules set with these rules.
 
-d) Check with the function `number_format` which of the following records has two digits.
+```{r}
+rules <- validator(
+  field_length(size, min=2, max=Inf)
+  field_length(id, n = 5),
+  field_length(size, min=2, max=3)
+)
+summary(confront(SBS2000, rules))
 
+```
+
+
+d) Check with the function `number_format` which of the following records has two digits.
+Use `values` to print the "faulty"  records.
 ```{r}
 dat <- data.frame(x = c("2.54","2.66","8.142","23.53", "2.3"))
+rules <- validator(
+  number_format(x, min_dig = 2, max_dig = 2)
+)
+summary(confront(dat, rules))
 ```
 
 e) As d) but now with at least two digits.
+
+```{r}
+dat <- data.frame(x = c("2.54","2.66","8.142","23.53", "2.3"))
+rules <- validator(
+  number_format(x, min_dig = 2)
+)
+summary(confront(dat, rules))
+```
+
+f) As d) but now with a check that the number should start with "2." and two digits
+
+```{r}
+dat <- data.frame(x = c("2.54","2.66","8.142","23.53", "2.3"))
+rules <- validator(
+  number_format(x, format="2.dd")
+)
+summary(confront(dat, rules))
+values(confront(dat, rules))
+```
+
 
 ## Exercise 2
 
@@ -158,7 +220,7 @@ on a data.base.
 
 a) Execute the following code:
 
-```{r,eval = FALSE}
+```{r, echo=TRUE}
 library(validatedb)
 # we are using a sqlite database in this demo
 library(RSQLite)
@@ -177,5 +239,4 @@ b) Use confront to execute the rules on the database table and `print` and do a 
 c) Use `values` on the result of confront see the contents of the checks.
 
 d) Use `show_query` to print the SQL code that is executed on the database.
-
 
