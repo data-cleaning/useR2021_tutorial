@@ -21,6 +21,11 @@ Or download:
 \end{picture}
 
 
+### 
+
+**Please join** `#tut_validate` **on slack**
+
+
 ## This tutorial
 
 
