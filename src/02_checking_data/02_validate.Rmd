@@ -143,13 +143,17 @@ if (staff > 0) staff.costs > 0
 
 `>, >=,==, <=, <, %in%`
 
+### Completeness
+
+`is.complete`
+
 ### Boolean operations
 
 `!, all(), any(), &, &&, |, ||, if () else`
 
-### Text search
+### Text formatting
 
-`grepl`
+`grepl`, `field_length`, `field_format`
 
 
 ### Functional dependencies (Armstrong)
@@ -262,3 +266,8 @@ out <- confront(retailers, rules
         , lin.eq.eps=1e-2 )
 ```
 
+## validatedb
+
+- Sometimes data is big and stored in a database
+- `validatedb` executes `validate` checks on a database. 
+- `checks` are translated into SQL code.

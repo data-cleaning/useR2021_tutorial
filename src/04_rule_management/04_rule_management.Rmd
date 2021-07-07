@@ -69,7 +69,15 @@ A lot of datacleaning packages are using validate rules to facilitate their work
 - `deductive`: deductive **correction**
 - `dcmodify`: deterministic **correction** and **imputation**.
 
+## Explicit Rules
+
+### `validate` helps to manage rules
+- storing them in yml, data.frame or R file
+- document them, add extra metadata
+- include / import them in other rule sets.
+
 ## Growing pains
+
 
 - using explicit rules is great, but when succesful create new and 
 unforeseen issues.

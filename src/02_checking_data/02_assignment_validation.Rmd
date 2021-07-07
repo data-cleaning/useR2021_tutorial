@@ -192,6 +192,17 @@ profit == total.rev - total.costs
 
 and create a validator with `validator(.file="rules.R")`.
 
+```{r}
+rules <- validator(
+  turnover >= 0,
+  staff >= 0,
+  # profits can be negative (not for long...)
+  profit == total.rev - total.costs
+)
+
+```
+
+
 b) Rules can have metadata, this can be seen when turning a rule set into a data.frame
 
 ```{r, eval=FALSE}
@@ -203,6 +214,11 @@ c) Use `names(rules)` to set the `id` of the rules to `BR01`, `BR02` and `BR03`.
 You can do this in the same way as for renaming elements of a vector. Use the
 `label` function to set the label of the third rule to "profit def". Use
 `print(rules)` to see the differences.
+
+```{r}
+names(rules)
+```
+
 
 d) Export the rule set to "br.yml" in yaml format using `export_yaml`.
 Open "br.yml" in RStudio (or another text editor) and copy the comments of the rules
@@ -247,4 +263,6 @@ b) Use confront to execute the rules on the database table and `print` and do a 
 c) Use `values` on the result of confront see the contents of the checks.
 
 d) Use `show_query` to print the SQL code that is executed on the database.
+
+
 
