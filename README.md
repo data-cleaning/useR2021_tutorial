@@ -1,6 +1,8 @@
 # useR2021_tutorial
 Materials for the useR!2021 tutorial on data validation
 
+Watch the video of this tutorial [here](https://www.youtube.com/watch?v=hb785sQt8tg).
+
 
 ## Preparations
 

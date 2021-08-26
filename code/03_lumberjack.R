@@ -24,7 +24,7 @@ inp <- read.csv("code/supermarkets.csv")
 out <- read.csv("code/clean_supermarkets.csv")
 
 # We can count how many cells changed.
-diff <- cells(input=inp, output=out)
+diff <- cells(step1=inp, step2=out)
 
 # READ the help-file of cells
 ?cells
@@ -49,7 +49,7 @@ diff <- cells(input=inp, step01 = st1, output = out)
 diff
 
 plot(diff)
-
+barplot(diff)
 
 ## ASSIGNMENT 5.
 # It is also interesting to see how rule-satisfaction evolves.
@@ -78,8 +78,8 @@ lg <- read.csv("code/dat_cellwise.csv")
 # interpret the results:
 View(lg)
 
-
-
+d <- read.csv("code/dat_expression.csv")
+View(d)
 
 
 
